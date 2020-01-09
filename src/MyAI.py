@@ -2,6 +2,11 @@
 # FILE:        MyAI.py
 #
 # AUTHOR:      Amanda Trinh
+#
+# Artificially Intelligent Agent to maximize points by getting
+# "gold" each time if possible and efficiently.
+# Includes an AI backtracker and smart game search.
+#
 # ======================================================================
 
 from Agent import Agent
@@ -9,9 +14,6 @@ from Agent import Agent
 class MyAI ( Agent ):
 
     def __init__ ( self ):
-        # ======================================================================
-        # YOUR CODE BEGINS
-        # ======================================================================
         self.visited = set() # set of visited/safe spots
         self.visitedCount = dict() # how many times we've entered each spot
         self.P = set()
@@ -34,15 +36,9 @@ class MyAI ( Agent ):
         self.goHome = list() # path we've taken so far
         self.goHomeNow = False
         self.betterpath = list()
-        # ======================================================================
-        # YOUR CODE ENDS
-        # ======================================================================
 
-    def getAction( self, stench, breeze, glitter, bump, scream ):
-        # ======================================================================
-        # YOUR CODE BEGINS
-        # ======================================================================
         
+    def getAction( self, stench, breeze, glitter, bump, scream ):
         if self.nextMove != False: # if nextMove known complete it first as always
             # pop first move in nextMoveList
             result = self.nextMoveList.pop(0)
@@ -138,7 +134,6 @@ class MyAI ( Agent ):
                 self.nextMove = False
             self.lastMove = result
             return result
-
 
         # let's figure out the percepts in the current spot
         
@@ -243,14 +238,7 @@ class MyAI ( Agent ):
                 self.lastMove = result
                 return result
         
-        # CODE HERE
         return Agent.Action.CLIMB
-        # YOUR CODE ENDS
-        # ======================================================================
-    
-    # ======================================================================
-    # YOUR CODE BEGINS
-    # ======================================================================
 
     def __calcNextMove(self, nextPosTuple):
         # will return a list of Agent.Action
@@ -381,7 +369,6 @@ class MyAI ( Agent ):
         if ((self.row + 1 == self.maxRow) and (self.col - 1 == 0) and
            ((self.row + 1, self.col + 1) in self.S)):
             self.WumpusLoc = (self.row, self.col + 1)
-        # Does not return anything
 
 
     def __calcShoot(self):
@@ -430,7 +417,3 @@ class MyAI ( Agent ):
                     nextcurrpath = result.copy()
                     self.__calcOptimalPath(nextcurrpath,currmove,nextmove,counter+1,len(self.betterpath))
             return self.betterpath
-
-    # ======================================================================
-    # YOUR CODE ENDS
-    # ======================================================================
