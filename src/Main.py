@@ -36,8 +36,6 @@
 #                              be written. This is optional.
 #
 #              - If -m and -r are turned on, -m will be turned off.
-#
-#              - Don't make changes to this file.
 # ======================================================================
 
 import sys
