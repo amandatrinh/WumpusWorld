@@ -3,6 +3,7 @@
 #
 # AUTHOR:      Amanda Trinh
 #
+# DESCRIPTION:
 # Artificially Intelligent Agent to maximize points by getting
 # "gold" each time if possible and efficiently.
 # Includes an AI backtracker and smart game search.
